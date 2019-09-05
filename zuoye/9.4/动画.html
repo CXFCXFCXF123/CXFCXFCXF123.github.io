@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.lee-enter{ 
+			/* background: green!important; */
+			margin-left: -100px;
+			opacity: 0;
+		}
+		/* lee-centr 隐藏到显示前 */
+		.lee-enter-active{
+			transition: all 1s
+			/* background: red; */
+		}
+		/* lee-enter-active 隐藏到显示时 */
+		.lee-enter-to{
+			/* background: red; */
+		}
+		/* lee-enter-to  隐藏到显示后*/
+
+
+		/* lee-leave  显示到隐藏前*/
+		.lee-leava{
+			/* background-color: green; */
+		}
+		/* lee-leave-active  显示到隐藏时*/
+		.lee-leave-active{
+			transition: all 1s;
+		}
+		/* lee-leave-active  显示到隐藏后*/
+		.lee-leave-to{
+			/* background: red; */
+			margin-left: 100px;
+			opacity: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<lee style="text-align: center;"></lee>
+		<!-- 组件输出 -->
+	</div>
+	<template id="lee">
+		<div>
+			<button @click="type=!type">切换</button>
+			<transition name="lee">
+				<div v-show="type">
+					切换动画
+				</div>
+		    </transition>
+
+		</div>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script type="text/javascript">
+	Vue.component('lee',{
+		template:"#lee",
+		data(){
+			return{
+				type:true
+			}
+		}
+	})
+	new Vue({
+		el:"#box"
+	})
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	<div id="box">
+		<lee></lee>
+	</div>
+	<template id="lee">
+		<div>
+			<button style="margin-top:150px;margin-left:40px;" >下一个</button>
+			<button style="margin-left:540px;margin-top:150px;">上一个</button>
+			<div style="width:600px;position: relative;">
+				<transition :name="t_type" v-for="(i,$index) in arr">
+					<div style="width:600px;position:absolute;" v-show="type==$index">
+						<img :src="i" width="600px">
+						
+					</div>
+				</transition>
+			</div>
+
+		</div>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script type="text/javascript">
+	Vue.component('lee',{
+		template:"#lee",
+		data(){
+			return{
+
+			}
+		}
+
+	})
+	new Vue({
+		el:"#box",
+
+	})
+</script>
+</html>
